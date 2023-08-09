@@ -42,9 +42,12 @@
         },
         "border-rule": {
             "begin": "\\s*(border|border-top|border-right|border-bottom|border-left|outline|outline-top|outline-right|outline-bottom|outline-left)\\s*:\\s*",
-            "end": "\\s*;",
+            "end": "\\s*(!important)\\s*;",
             "beginCaptures": {
                 "1": { "name": "support.type.property-name" }
+            },
+            "endCaptures": {
+                "1": { "name": "keyword.other.important" }
             },
             "patterns": [
                 { "include": "#border-color-value" },
@@ -54,9 +57,12 @@
         },
         "color-rule": {
             "begin": "\\s*(background|border-subtitle-background|border-subtitle-color|border-title-color|border-title-background|color|link-background|link-color|link-hover-background|link-hover-color|scrollbar-background|scrollbar-background-active|scrollbar-background-hover|scrollbar-color|scrollbar-color-active|scrollbar-color-hover|scrollbar-corner-color|tint)\\s*:\\s*",
-            "end": "\\s*;",
+            "end": "\\s*(!important)\\s*;",
             "beginCaptures": {
                 "1": { "name": "support.type.property-name" }
+            },
+            "endCaptures": {
+                "1": { "name": "keyword.other.important" }
             },
             "patterns": [
                 { "include": "#color-value" },
@@ -65,62 +71,77 @@
         },
         "horizontal-vertical-rule": {
             "begin": "\\s*(align|content-align)\\s*:\\s*",
-            "end": "\\s*;",
+            "end": "\\s*(!important)\\s*;",
             "patterns": [
                 { "include": "#horizontal-vertical-value" },
                 { "include": "#invalid-value" }
             ],
             "beginCaptures": {
                 "1": { "name": "support.type.property-name" }
+            },
+            "endCaptures": {
+                "1": { "name": "keyword.other.important" }
             }
         },
         "horizontal-rule": {
             "begin": "\\s*(align-horizontal|border-subtitle-align|border-title-align|content-align-horizontal)\\s*:\\s*",
-            "end": "\\s*;",
+            "end": "\\s*(!important)\\s*;",
             "patterns": [
                 { "include": "#horizontal-value" },
                 { "include": "#invalid-value" }
             ],
             "beginCaptures": {
                 "1": { "name": "support.type.property-name" }
+            },
+            "endCaptures": {
+                "1": { "name": "keyword.other.important" }
             }
         },
         "vertical-rule": {
             "begin": "\\s*(align-vertical|content-align-vertical)\\s*:\\s*",
-            "end": "\\s*;",
+            "end": "\\s*(!important)\\s*;",
             "patterns": [
                 { "include": "#vertical-value" },
                 { "include": "#invalid-value" }
             ],
             "beginCaptures": {
                 "1": { "name": "support.type.property-name" }
+            },
+            "endCaptures": {
+                "1": { "name": "keyword.other.important" }
             }
         },
         "scalar-rule": {
             "begin": "\\s*(height|max-height|max-width|min-height|min-width|offset-x|offset-y|width)\\s*:\\s*",
-            "end": "\\s*;",
+            "end": "\\s*(!important)\\s*;",
             "patterns": [
                 { "include": "#scalar-value" },
                 { "include": "#invalid-value" }
             ],
             "beginCaptures": {
                 "1": { "name": "support.type.property-name" }
+            },
+            "endCaptures": {
+                "1": { "name": "keyword.other.important" }
             }
         },
         "text-style-rule": {
             "begin": "\\s*(border-subtitle-style|border-title-style|link-hover-style|link-style|text-style)\\s*:\\s*",
-            "end": "\\s*;",
+            "end": "\\s*(!important)\\s*;",
             "patterns": [
                 { "include": "#text-style-value" },
                 { "include": "#invalid-value" }
             ],
             "beginCaptures": {
                 "1": { "name": "support.type.property-name" }
+            },
+            "endCaptures": {
+                "1": { "name": "keyword.other.important" }
             }
         },
         "box-sizing-rule": {
             "begin": "\\s*(box-sizing)\\s*:\\s*",
-            "end": "\\s*;",
+            "end": "\\s*(!important)\\s*;",
             "patterns": [
                 {
                     "match": "border-box|content-box",
@@ -130,11 +151,14 @@
             ],
             "beginCaptures": {
                 "1": { "name": "support.type.property-name" }
+            },
+            "endCaptures": {
+                "1": { "name": "keyword.other.important" }
             }
         },
         "display-rule": {
             "begin": "\\s*(display)\\s*:\\s*",
-            "end": "\\s*;",
+            "end": "\\s*(!important)\\s*;",
             "patterns": [
                 {
                     "match": "block|none",
@@ -144,11 +168,14 @@
             ],
             "beginCaptures": {
                 "1": { "name": "support.type.property-name" }
+            },
+            "endCaptures": {
+                "1": { "name": "keyword.other.important" }
             }
         },
         "dock-rule": {
             "begin": "\\s*(dock)\\s*:\\s*",
-            "end": "\\s*;",
+            "end": "\\s*(!important)\\s*;",
             "patterns": [
                 {
                     "match": "bottom|left|right|top",
@@ -158,33 +185,42 @@
             ],
             "beginCaptures": {
                 "1": { "name": "support.type.property-name" }
+            },
+            "endCaptures": {
+                "1": { "name": "keyword.other.important" }
             }
         },
         "integer-rule": {
             "begin": "\\s*(column-span|row-span|margin-top|margin-right|margin-bottom|margin-left|padding-top|padding-right|padding-bottom|padding-left|scrollbar-size-horizontal|scrollbar-size-vertical)\\s*:\\s*",
-            "end": "\\s*;",
+            "end": "\\s*(!important)\\s*;",
             "patterns": [
                 { "include": "#integer-value" },
                 { "include": "#invalid-value" }
             ],
             "beginCaptures": {
                 "1": { "name": "support.type.property-name" }
+            },
+            "endCaptures": {
+                "1": { "name": "keyword.other.important" }
             }
         },
         "multiple-scalars-rule": {
             "begin": "\\s*(grid-columns|grid-rows)\\s*:\\s*",
-            "end": "\\s*;",
+            "end": "\\s*(!important)\\s*;",
             "patterns": [
                 { "include": "#multiple-scalars-value" },
                 { "include": "#invalid-value" }
             ],
             "beginCaptures": {
                 "1": { "name": "support.type.property-name" }
+            },
+            "endCaptures": {
+                "1": { "name": "keyword.other.important" }
             }
         },
         "grid-gutter-rule": {
             "begin": "\\s*(grid-gutter)\\s*:\\s",
-            "end": "\\s*;",
+            "end": "\\s*(!important)\\s*;",
             "patterns": [
                 {
                     "match": "(\\S+)(\\s+(\\S+))?",
@@ -207,11 +243,14 @@
             ],
             "beginCaptures": {
                 "1": { "name": "support.type.property-name" }
+            },
+            "endCaptures": {
+                "1": { "name": "keyword.other.important" }
             }
         },
         "grid-size-rule": {
             "begin": "\\s*(grid-size)\\s*:\\s",
-            "end": "\\s*;",
+            "end": "\\s*(!important)\\s*;",
             "patterns": [
                 {
                     "match": "(\\S+)(\\s+(\\S+))?",
@@ -234,11 +273,14 @@
             ],
             "beginCaptures": {
                 "1": { "name": "support.type.property-name" }
+            },
+            "endCaptures": {
+                "1": { "name": "keyword.other.important" }
             }
         },
         "layout-rule": {
             "begin": "\\s*(layout)\\s*:\\s*",
-            "end": "\\s*;",
+            "end": "\\s*(!important)\\s*;",
             "patterns": [
                 {
                     "match": "grid|horizontal|vertical",
@@ -248,11 +290,14 @@
             ],
             "beginCaptures": {
                 "1": { "name": "support.type.property-name" }
+            },
+            "endCaptures": {
+                "1": { "name": "keyword.other.important" }
             }
         },
         "overflow-rule": {
             "begin": "\\s*(overflow)\\s*:\\s*",
-            "end": "\\s*;",
+            "end": "\\s*(!important)\\s*;",
             "patterns": [
                 {
                     "match": "(\\S+)\\s+(\\S+)",
@@ -275,22 +320,28 @@
             ],
             "beginCaptures": {
                 "1": { "name": "support.type.property-name" }
+            },
+            "endCaptures": {
+                "1": { "name": "keyword.other.important" }
             }
         },
         "overflow-dir-rule": {
             "begin": "\\s*(overflow-x|overflow-y)\\s*:\\s*",
-            "end": "\\s*;",
+            "end": "\\s*(!important)\\s*;",
             "patterns": [
                 { "include": "#overflow-value" },
                 { "include": "#invalid-value" }
             ],
             "beginCaptures": {
                 "1": { "name": "support.type.property-name" }
+            },
+            "endCaptures": {
+                "1": { "name": "keyword.other.important" }
             }
         },
         "scrollbar-gutter-rule": {
             "begin": "\\s*(scrollbar-gutter)\\s*:\\s*",
-            "end": "\\s*;",
+            "end": "\\s*(!important)\\s*;",
             "patterns": [
                 {
                     "match": "auto|stable",
@@ -300,11 +351,14 @@
             ],
             "beginCaptures": {
                 "1": { "name": "support.type.property-name" }
+            },
+            "endCaptures": {
+                "1": { "name": "keyword.other.important" }
             }
         },
         "text-align-rule": {
             "begin": "\\s*(text-align)\\s*:\\s*",
-            "end": "\\s*;",
+            "end": "\\s*(!important)\\s*;",
             "patterns": [
                 {
                     "match": "center|end|justify|left|right|start",
@@ -314,11 +368,14 @@
             ],
             "beginCaptures": {
                 "1": { "name": "support.type.property-name" }
+            },
+            "endCaptures": {
+                "1": { "name": "keyword.other.important" }
             }
         },
         "visibility-rule": {
             "begin": "\\s*(visibility)\\s*:\\s*",
-            "end": "\\s*;",
+            "end": "\\s*(!important)\\s*;",
             "patterns": [
                 {
                     "match": "hidden|visible",
@@ -328,44 +385,56 @@
             ],
             "beginCaptures": {
                 "1": { "name": "support.type.property-name" }
+            },
+            "endCaptures": {
+                "1": { "name": "keyword.other.important" }
             }
         },
         "layer-rule": {
             "begin": "\\s*(layer)\\s*:\\s*",
-            "end": "\\s*;",
+            "end": "\\s*(!important)\\s*;",
             "patterns": [
                 { "include": "#name-value" },
                 { "include": "#invalid-value" }
             ],
             "beginCaptures": {
                 "1": { "name": "support.type.property-name" }
+            },
+            "endCaptures": {
+                "1": { "name": "keyword.other.important" }
             }
         },
         "layers-rule": {
             "begin": "\\s*(layers)\\s*:\\s*",
-            "end": "\\s*;",
+            "end": "\\s*(!important)\\s*;",
             "patterns": [
                 { "include": "#multiple-names-value" },
                 { "include": "#invalid-value" }
             ],
             "beginCaptures": {
                 "1": { "name": "support.type.property-name" }
+            },
+            "endCaptures": {
+                "1": { "name": "keyword.other.important" }
             }
         },
         "integers-1-2-4-rule": {
             "begin": "\\s*(margin|padding)\\s*:\\s*",
-            "end": "\\s*;",
+            "end": "\\s*(!important)\\s*;",
             "patterns": [
                 { "include": "#integers-1-2-4-value" },
                 { "include": "#invalid-value" }
             ],
             "beginCaptures": {
                 "1": { "name": "support.type.property-name" }
+            },
+            "endCaptures": {
+                "1": { "name": "keyword.other.important" }
             }
         },
         "offset-rule": {
             "begin": "\\s*(offset)\\s*:\\s*",
-            "end": "\\s*;",
+            "end": "\\s*(!important)\\s*;",
             "patterns": [
                 {
                     "match": "(\\S+)\\s+(\\S+)",
@@ -388,11 +457,14 @@
             ],
             "beginCaptures": {
                 "1": { "name": "support.type.property-name" }
+            },
+            "endCaptures": {
+                "1": { "name": "keyword.other.important" }
             }
         },
         "scrollbar-size-rule": {
             "begin": "\\s*(scrollbar-size)\\s*:\\s*",
-            "end": "\\s*;",
+            "end": "\\s*(!important)\\s*;",
             "patterns": [
                 {
                     "match": "(\\S+)\\s+(\\S+)",
@@ -415,11 +487,14 @@
             ],
             "beginCaptures": {
                 "1": { "name": "support.type.property-name" }
+            },
+            "endCaptures": {
+                "1": { "name": "keyword.other.important" }
             }
         },
         "opacity-rule": {
             "begin": "\\s*(opacity|text-opacity)\\s*:\\s*",
-            "end": "\\s*;",
+            "end": "\\s*(!important)\\s*;",
             "patterns": [
                 { "include": "#percentage" },
                 { "include": "#decimal-percentage" },
@@ -427,6 +502,9 @@
             ],
             "beginCaptures": {
                 "1": { "name": "support.type.property-name" }
+            },
+            "endCaptures": {
+                "1": { "name": "keyword.other.important" }
             }
         },
         "integers-1-2-4-value": {
@@ -815,11 +893,18 @@
             "match": "\\b(100|\\d{1,2})([.]\\d*)?%",
             "name": "constant.numeric"
         },
+        "important": {
+            "match": "!important",
+            "name": "keyword.other.important"
+        },
         "invalid-rule-name": {
             "begin": "\\s*(.*)\\s*:",
-            "end": "\\s*;",
+            "end": "\\s*(!important)\\s*;",
             "beginCaptures": {
                 "1": { "name": "invalid.tcss-rule-name" }
+            },
+            "endCaptures": {
+                "1": { "name": "keyword.other.important" }
             }
         },
         "invalid-value": {
