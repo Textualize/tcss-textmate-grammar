@@ -741,44 +741,9 @@
             }
         },
         "color-value-rgb-description": {
-            "match": "rgb\\(\\s*(.+?)\\s*,\\s*(.+?)\\s*,\\s*(.+?)\\s*\\)(\\s+(.+))?",
+            "match": "(rgb)\\(\\s*(.+?)\\s*,\\s*(.+?)\\s*,\\s*(.+?)\\s*\\)(\\s+(.+))?",
             "captures": {
-                "1": {
-                    "patterns": [
-                        { "include": "#rgb-integer" },
-                        { "include": "#invalid-value" }
-                    ]
-                },
-                "2": {
-                    "patterns": [
-                        { "include": "#rgb-integer" },
-                        { "include": "#invalid-value" }
-                    ]
-                },
-                "3": {
-                    "patterns": [
-                        { "include": "#rgb-integer" },
-                        { "include": "#invalid-value" }
-                    ]
-                },
-                "5": {
-                    "patterns": [
-                        { "include": "#percentage" },
-                        { "include": "#invalid-value" }
-                    ]
-                }
-            }
-        },
-        "color-value-rgba-description": {
-            "match": "rgba\\(\\s*(.+?)\\s*,\\s*(.+?)\\s*,\\s*(.+?)\\s*,\\s*(.+?)\\s*\\)(\\s+(.+))?",
-            "captures": {
-                "0": { "name": "debug-rgba" },
-                "1": {
-                    "patterns": [
-                        { "include": "#rgb-integer" },
-                        { "include": "#invalid-value" }
-                    ]
-                },
+                "1": { "name": "support.function.misc" },
                 "2": {
                     "patterns": [
                         { "include": "#rgb-integer" },
@@ -793,7 +758,7 @@
                 },
                 "4": {
                     "patterns": [
-                        { "include": "#decimal-percentage" },
+                        { "include": "#rgb-integer" },
                         { "include": "#invalid-value" }
                     ]
                 },
@@ -805,32 +770,35 @@
                 }
             }
         },
-        "color-value-hsl-description": {
-            "match": "hsl\\(\\s*(.+?)\\s*,\\s*(.+?)\\s*,\\s*(.+?)\\s*\\)(\\s+(.+))?",
+        "color-value-rgba-description": {
+            "match": "(rgba)\\(\\s*(.+?)\\s*,\\s*(.+?)\\s*,\\s*(.+?)\\s*,\\s*(.+?)\\s*\\)(\\s+(.+))?",
             "captures": {
-                "0": { "name": "debug-hsl" },
-                "1": {
-                    "patterns": [
-                        { "include": "#hue-value" },
-                        { "include": "#invalid-value" }
-                    ],
-                    "name": "first-one"
-                },
+                "1": { "name": "support.function.misc" },
                 "2": {
                     "patterns": [
-                        { "include": "#percentage" },
+                        { "include": "#rgb-integer" },
                         { "include": "#invalid-value" }
-                    ],
-                    "name": "second-one"
+                    ]
                 },
                 "3": {
                     "patterns": [
-                        { "include": "#percentage" },
+                        { "include": "#rgb-integer" },
                         { "include": "#invalid-value" }
-                    ],
-                    "name": "third-oned"
+                    ]
+                },
+                "4": {
+                    "patterns": [
+                        { "include": "#rgb-integer" },
+                        { "include": "#invalid-value" }
+                    ]
                 },
                 "5": {
+                    "patterns": [
+                        { "include": "#decimal-percentage" },
+                        { "include": "#invalid-value" }
+                    ]
+                },
+                "7": {
                     "patterns": [
                         { "include": "#percentage" },
                         { "include": "#invalid-value" }
@@ -838,18 +806,13 @@
                 }
             }
         },
-        "color-value-hsla-description": {
-            "match": "hsla\\(\\s*(.+?)\\s*,\\s*(.+?)\\s*,\\s*(.+?)\\s*,\\s*(.+?)\\s*\\)(\\s+(.+))?",
+        "color-value-hsl-description": {
+            "match": "(hsl)\\(\\s*(.+?)\\s*,\\s*(.+?)\\s*,\\s*(.+?)\\s*\\)(\\s+(.+))?",
             "captures": {
-                "1": {
-                    "patterns": [
-                        { "include": "#hue-value" },
-                        { "include": "#invalid-value" }
-                    ]
-                },
+                "1": { "name": "support.function.misc" },
                 "2": {
                     "patterns": [
-                        { "include": "#percentage" },
+                        { "include": "#hue-value" },
                         { "include": "#invalid-value" }
                     ]
                 },
@@ -860,6 +823,42 @@
                     ]
                 },
                 "4": {
+                    "patterns": [
+                        { "include": "#percentage" },
+                        { "include": "#invalid-value" }
+                    ]
+                },
+                "6": {
+                    "patterns": [
+                        { "include": "#percentage" },
+                        { "include": "#invalid-value" }
+                    ]
+                }
+            }
+        },
+        "color-value-hsla-description": {
+            "match": "(hsla)\\(\\s*(.+?)\\s*,\\s*(.+?)\\s*,\\s*(.+?)\\s*,\\s*(.+?)\\s*\\)(\\s+(.+))?",
+            "captures": {
+                "1": { "name": "support.function.misc" },
+                "2": {
+                    "patterns": [
+                        { "include": "#hue-value" },
+                        { "include": "#invalid-value" }
+                    ]
+                },
+                "3": {
+                    "patterns": [
+                        { "include": "#percentage" },
+                        { "include": "#invalid-value" }
+                    ]
+                },
+                "4": {
+                    "patterns": [
+                        { "include": "#percentage" },
+                        { "include": "#invalid-value" }
+                    ]
+                },
+                "5": {
                     "patterns": [
                         { "include": "#decimal-percentage" },
                         { "include": "#invalid-value" }
