@@ -50,6 +50,7 @@
                 "1": { "name": "keyword.other.important" }
             },
             "patterns": [
+                { "include": "#variable" },
                 { "include": "#border-color-value" },
                 { "include": "#border-value" },
                 { "include": "#invalid-value" }
@@ -65,6 +66,7 @@
                 "1": { "name": "keyword.other.important" }
             },
             "patterns": [
+                { "include": "#variable" },
                 { "include": "#color-value" },
                 { "include": "#invalid-value" }
             ]
@@ -73,6 +75,7 @@
             "begin": "\\s*(align|content-align)\\s*:\\s*",
             "end": "\\s*(!important)\\s*;",
             "patterns": [
+                { "include": "#variable" },
                 { "include": "#horizontal-vertical-value" },
                 { "include": "#invalid-value" }
             ],
@@ -87,6 +90,7 @@
             "begin": "\\s*(align-horizontal|border-subtitle-align|border-title-align|content-align-horizontal)\\s*:\\s*",
             "end": "\\s*(!important)\\s*;",
             "patterns": [
+                { "include": "#variable" },
                 { "include": "#horizontal-value" },
                 { "include": "#invalid-value" }
             ],
@@ -101,6 +105,7 @@
             "begin": "\\s*(align-vertical|content-align-vertical)\\s*:\\s*",
             "end": "\\s*(!important)\\s*;",
             "patterns": [
+                { "include": "#variable" },
                 { "include": "#vertical-value" },
                 { "include": "#invalid-value" }
             ],
@@ -115,6 +120,7 @@
             "begin": "\\s*(height|max-height|max-width|min-height|min-width|offset-x|offset-y|width)\\s*:\\s*",
             "end": "\\s*(!important)\\s*;",
             "patterns": [
+                { "include": "#variable" },
                 { "include": "#scalar-value" },
                 { "include": "#invalid-value" }
             ],
@@ -129,6 +135,7 @@
             "begin": "\\s*(border-subtitle-style|border-title-style|link-hover-style|link-style|text-style)\\s*:\\s*",
             "end": "\\s*(!important)\\s*;",
             "patterns": [
+                { "include": "#variable" },
                 { "include": "#text-style-value" },
                 { "include": "#invalid-value" }
             ],
@@ -143,6 +150,7 @@
             "begin": "\\s*(box-sizing)\\s*:\\s*",
             "end": "\\s*(!important)\\s*;",
             "patterns": [
+                { "include": "#variable" },
                 {
                     "match": "border-box|content-box",
                     "name": "support.constant.property-value"
@@ -160,6 +168,7 @@
             "begin": "\\s*(display)\\s*:\\s*",
             "end": "\\s*(!important)\\s*;",
             "patterns": [
+                { "include": "#variable" },
                 {
                     "match": "block|none",
                     "name": "support.constant.property-value"
@@ -177,6 +186,7 @@
             "begin": "\\s*(dock)\\s*:\\s*",
             "end": "\\s*(!important)\\s*;",
             "patterns": [
+                { "include": "#variable" },
                 {
                     "match": "bottom|left|right|top",
                     "name": "support.constant.property-value"
@@ -194,6 +204,7 @@
             "begin": "\\s*(column-span|row-span|margin-top|margin-right|margin-bottom|margin-left|padding-top|padding-right|padding-bottom|padding-left|scrollbar-size-horizontal|scrollbar-size-vertical)\\s*:\\s*",
             "end": "\\s*(!important)\\s*;",
             "patterns": [
+                { "include": "#variable" },
                 { "include": "#integer-value" },
                 { "include": "#invalid-value" }
             ],
@@ -208,6 +219,7 @@
             "begin": "\\s*(grid-columns|grid-rows)\\s*:\\s*",
             "end": "\\s*(!important)\\s*;",
             "patterns": [
+                { "include": "#variable" },
                 { "include": "#multiple-scalars-value" },
                 { "include": "#invalid-value" }
             ],
@@ -222,6 +234,7 @@
             "begin": "\\s*(grid-gutter)\\s*:\\s",
             "end": "\\s*(!important)\\s*;",
             "patterns": [
+                { "include": "#variable" },
                 {
                     "match": "(\\S+)(\\s+(\\S+))?",
                     "captures": {
@@ -252,6 +265,7 @@
             "begin": "\\s*(grid-size)\\s*:\\s",
             "end": "\\s*(!important)\\s*;",
             "patterns": [
+                { "include": "#variable" },
                 {
                     "match": "(\\S+)(\\s+(\\S+))?",
                     "captures": {
@@ -282,6 +296,7 @@
             "begin": "\\s*(layout)\\s*:\\s*",
             "end": "\\s*(!important)\\s*;",
             "patterns": [
+                { "include": "#variable" },
                 {
                     "match": "grid|horizontal|vertical",
                     "name": "support.constant.property-value"
@@ -299,6 +314,7 @@
             "begin": "\\s*(overflow)\\s*:\\s*",
             "end": "\\s*(!important)\\s*;",
             "patterns": [
+                { "include": "#variable" },
                 {
                     "match": "(\\S+)\\s+(\\S+)",
                     "captures": {
@@ -329,6 +345,7 @@
             "begin": "\\s*(overflow-x|overflow-y)\\s*:\\s*",
             "end": "\\s*(!important)\\s*;",
             "patterns": [
+                { "include": "#variable" },
                 { "include": "#overflow-value" },
                 { "include": "#invalid-value" }
             ],
@@ -343,6 +360,7 @@
             "begin": "\\s*(scrollbar-gutter)\\s*:\\s*",
             "end": "\\s*(!important)\\s*;",
             "patterns": [
+                { "include": "#variable" },
                 {
                     "match": "auto|stable",
                     "name": "support.constant.property-value"
@@ -360,6 +378,7 @@
             "begin": "\\s*(text-align)\\s*:\\s*",
             "end": "\\s*(!important)\\s*;",
             "patterns": [
+                { "include": "#variable" },
                 {
                     "match": "center|end|justify|left|right|start",
                     "name": "support.constant.property-value"
@@ -377,6 +396,7 @@
             "begin": "\\s*(visibility)\\s*:\\s*",
             "end": "\\s*(!important)\\s*;",
             "patterns": [
+                { "include": "#variable" },
                 {
                     "match": "hidden|visible",
                     "name": "support.constant.property-value"
@@ -394,6 +414,7 @@
             "begin": "\\s*(layer)\\s*:\\s*",
             "end": "\\s*(!important)\\s*;",
             "patterns": [
+                { "include": "#variable" },
                 { "include": "#name-value" },
                 { "include": "#invalid-value" }
             ],
@@ -408,6 +429,7 @@
             "begin": "\\s*(layers)\\s*:\\s*",
             "end": "\\s*(!important)\\s*;",
             "patterns": [
+                { "include": "#variable" },
                 { "include": "#multiple-names-value" },
                 { "include": "#invalid-value" }
             ],
@@ -422,6 +444,7 @@
             "begin": "\\s*(margin|padding)\\s*:\\s*",
             "end": "\\s*(!important)\\s*;",
             "patterns": [
+                { "include": "#variable" },
                 { "include": "#integers-1-2-4-value" },
                 { "include": "#invalid-value" }
             ],
@@ -436,6 +459,7 @@
             "begin": "\\s*(offset)\\s*:\\s*",
             "end": "\\s*(!important)\\s*;",
             "patterns": [
+                { "include": "#variable" },
                 {
                     "match": "(\\S+)\\s+(\\S+)",
                     "captures": {
@@ -466,6 +490,7 @@
             "begin": "\\s*(scrollbar-size)\\s*:\\s*",
             "end": "\\s*(!important)\\s*;",
             "patterns": [
+                { "include": "#variable" },
                 {
                     "match": "(\\S+)\\s+(\\S+)",
                     "captures": {
@@ -496,6 +521,7 @@
             "begin": "\\s*(opacity|text-opacity)\\s*:\\s*",
             "end": "\\s*(!important)\\s*;",
             "patterns": [
+                { "include": "#variable" },
                 { "include": "#percentage" },
                 { "include": "#decimal-percentage" },
                 { "include": "#invalid-value"}
@@ -895,6 +921,10 @@
         "important": {
             "match": "!important",
             "name": "keyword.other.important"
+        },
+        "variable": {
+            "match": "\\$[a-zA-Z_][a-zA-Z\\d_-]*",
+            "name": "variable.other"
         },
         "invalid-rule-name": {
             "begin": "\\s*(.*)\\s*:",
