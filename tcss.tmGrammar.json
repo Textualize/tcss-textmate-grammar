@@ -576,34 +576,11 @@
                 },
                 "2": {
                     "patterns": [
-                        { "include": "#recursive-names-value" },
+                        { "include": "#multiple-names-value" },
                         { "include": "#invalid-value" }
                     ]
                 },
                 "3": {
-                    "patterns": [
-                        { "include": "#name-value" },
-                        { "include": "#invalid-value" }
-                    ]
-                }
-            }
-        },
-        "recursive-names-value": {
-            "match": "(\\S+)(\\s+(.*))|(\\S+)",
-            "captures": {
-                "1": {
-                    "patterns": [
-                        { "include": "#name-value" },
-                        { "include": "#invalid-value" }
-                    ]
-                },
-                "3": {
-                    "patterns": [
-                        { "include": "#recursive-names-value" },
-                        { "include": "#invalid-value" }
-                    ]
-                },
-                "4": {
                     "patterns": [
                         { "include": "#name-value" },
                         { "include": "#invalid-value" }
@@ -630,34 +607,11 @@
                 },
                 "2": {
                     "patterns": [
-                        { "include": "#recursive-scalars-value" },
+                        { "include": "#multiple-scalars-value" },
                         { "include": "#invalid-value" }
                     ]
                 },
                 "3": {
-                    "patterns": [
-                        { "include": "#scalar-value" },
-                        { "include": "#invalid-value" }
-                    ]
-                }
-            }
-        },
-        "recursive-scalars-value": {
-            "match": "(\\S+)(\\s+(.*))|(\\S+)",
-            "captures": {
-                "1": {
-                    "patterns": [
-                        { "include": "#scalar-value" },
-                        { "include": "#invalid-value" }
-                    ]
-                },
-                "3": {
-                    "patterns": [
-                        { "include": "#recursive-scalars-value" },
-                        { "include": "#invalid-value" }
-                    ]
-                },
-                "4": {
                     "patterns": [
                         { "include": "#scalar-value" },
                         { "include": "#invalid-value" }
