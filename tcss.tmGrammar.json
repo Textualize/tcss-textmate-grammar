@@ -4,6 +4,7 @@
     "fileTypes": [ "tcss" ],
     "patterns": [
         { "include": "#comment-block" },
+        { "include": "#comment-line" },
         { "include": "#combinators" },
         { "include": "#selector" },
         { "include": "#rule-list" }
@@ -27,6 +28,14 @@
                 "0": { "name": "punctuation.definition.comment.end.tcss" }
             },
             "name": "comment.block.tcss"
+        },
+        "comment-line": {
+            "begin": "\\#",
+            "beginCaptures": {
+                "0": { "name": "punctuation.definition.comment.begin.tcss"}
+            },
+            "end": "$",
+            "name": "comment.inline.tcss"
         },
         "selector": {
             "begin": "(?=[-\\[:.*\\#a-zA-Z_])",
