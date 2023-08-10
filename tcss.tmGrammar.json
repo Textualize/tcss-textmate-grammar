@@ -7,5 +7,26 @@
         { "include": "#combinators" },
         { "include": "#selector" },
         { "include": "#rule-list" }
-    ]
+    ],
+    "repository": {
+        "combinators": {
+            "patterns": [
+                {
+                    "match": ">",
+                    "name": "keyword.operator.combinator.tcss"
+                }
+            ]
+        },
+        "comment-block": {
+            "begin": "/\\*",
+            "beginCaptures": {
+                "0": { "name": "punctuation.definition.comment.begin.tcss" }
+            },
+            "end": "\\*/",
+            "endCaptures": {
+                "0": { "name": "punctuation.definition.comment.end.tcss" }
+            },
+            "name": "comment.block.tcss"
+        }
+    }
 }
