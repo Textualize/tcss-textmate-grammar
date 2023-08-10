@@ -138,7 +138,6 @@
             "begin": "\\s*(border-subtitle-style|border-title-style|link-hover-style|link-style|text-style)\\s*:\\s*",
             "end": "\\s*(!important)\\s*;",
             "patterns": [
-                { "include": "#variable" },
                 { "include": "#text-style-value" },
                 { "include": "#invalid-value" }
             ],
@@ -624,7 +623,58 @@
             "name": "constant.numeric"
         },
         "text-style-value": {
-            "match": "none|(bold|italic|reverse|strike|underline)(\\s+(bold|italic|reverse|strike|underline))*",
+            "match": "(none)|(\\S+)(\\s+(.*))|(\\S+)",
+            "captures": {
+                "1": { "name": "support.constant.property-value" },
+                "2": {
+                    "patterns": [
+                        { "include": "#variable" },
+                        { "include": "#text-style-value-single" },
+                        { "include": "#invalid-value" }
+                    ]
+                },
+                "4": {
+                    "patterns": [
+                        { "include": "#recursive-text-style-value" },
+                        { "include": "#invalid-value" }
+                    ]
+                },
+                "5": {
+                    "patterns": [
+                        { "include": "#variable" },
+                        { "include": "#text-style-value-single" },
+                        { "include": "#invalid-value" }
+                    ]
+                }
+            }
+        },
+        "recursive-text-style-value": {
+            "match": "(\\S+)(\\s+(.*))|(\\S+)",
+            "captures": {
+                "1": {
+                    "patterns": [
+                        { "include": "#variable" },
+                        { "include": "#text-style-value-single" },
+                        { "include": "#invalid-value" }
+                    ]
+                },
+                "3": {
+                    "patterns": [
+                        { "include": "#recursive-text-style-value" },
+                        { "include": "#invalid-value" }
+                    ]
+                },
+                "4": {
+                    "patterns": [
+                        { "include": "#variable" },
+                        { "include": "#text-style-value-single" },
+                        { "include": "#invalid-value" }
+                    ]
+                }
+            }
+        },
+        "text-style-value-single": {
+            "match": "bold|italic|reverse|strike|underline",
             "name": "support.constant.property-value"
         },
         "scalar-value": {
