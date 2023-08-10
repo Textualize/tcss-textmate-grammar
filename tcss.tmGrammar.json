@@ -1,6 +1,9 @@
 {
     "scopeName": "source.tcss",
-    "patterns": [{ "include": "#style-block" }],
+    "patterns": [
+        { "include": "#variable-definition"},
+        { "include": "#style-block" }
+    ],
     "repository": {
         "style-block": {
             "begin": "\\w+ *{",
@@ -767,7 +770,7 @@
             }
         },
         "color-value-rgb-description": {
-            "match": "(rgb)\\(\\s*(.+?)\\s*,\\s*(.+?)\\s*,\\s*(.+?)\\s*\\)(\\s+(.+))?",
+            "match": "(rgb)\\(\\s*(.+?)\\s*,\\s*(.+?)\\s*,\\s*(.+?)\\s*\\)(\\s+(.+%))?",
             "captures": {
                 "1": { "name": "support.function.misc" },
                 "2": {
@@ -797,7 +800,7 @@
             }
         },
         "color-value-rgba-description": {
-            "match": "(rgba)\\(\\s*(.+?)\\s*,\\s*(.+?)\\s*,\\s*(.+?)\\s*,\\s*(.+?)\\s*\\)(\\s+(.+))?",
+            "match": "(rgba)\\(\\s*(.+?)\\s*,\\s*(.+?)\\s*,\\s*(.+?)\\s*,\\s*(.+?)\\s*\\)(\\s+(.+%))?",
             "captures": {
                 "1": { "name": "support.function.misc" },
                 "2": {
@@ -833,7 +836,7 @@
             }
         },
         "color-value-hsl-description": {
-            "match": "(hsl)\\(\\s*(.+?)\\s*,\\s*(.+?)\\s*,\\s*(.+?)\\s*\\)(\\s+(.+))?",
+            "match": "(hsl)\\(\\s*(.+?)\\s*,\\s*(.+?)\\s*,\\s*(.+?)\\s*\\)(\\s+(.+%))?",
             "captures": {
                 "1": { "name": "support.function.misc" },
                 "2": {
@@ -863,7 +866,7 @@
             }
         },
         "color-value-hsla-description": {
-            "match": "(hsla)\\(\\s*(.+?)\\s*,\\s*(.+?)\\s*,\\s*(.+?)\\s*,\\s*(.+?)\\s*\\)(\\s+(.+))?",
+            "match": "(hsla)\\(\\s*(.+?)\\s*,\\s*(.+?)\\s*,\\s*(.+?)\\s*,\\s*(.+?)\\s*\\)(\\s+(.+%))?",
             "captures": {
                 "1": { "name": "support.function.misc" },
                 "2": {
@@ -923,8 +926,34 @@
             "name": "keyword.other.important"
         },
         "variable": {
-            "match": "\\$[a-zA-Z_][a-zA-Z\\d_-]*",
+            "match": "\\s*\\$[a-zA-Z_][a-zA-Z\\d_-]*\\s*",
             "name": "variable.other"
+        },
+        "variable-definition": {
+            "begin": "\\s*(\\$[a-zA-Z_][a-zA-Z\\d_-]*)\\s*:\\s*",
+            "end": "\\s*;",
+            "beginCaptures": {
+                "1": { "name": "variable.other" }
+            },
+            "name": "variable-definition.tcss",
+            "patterns": [
+                { "match": "\\s+" },
+                { "include": "#color-value-hex" },
+                { "include": "#color-value-rgb-description" },
+                { "include": "#color-value-rgba-description" },
+                { "include": "#color-value-hsl-description" },
+                { "include": "#color-value-hsla-description" },
+                { "include": "#scalar-value" },
+                {
+                    "match": "\\d+",
+                    "name": "constant.numeric"
+                },
+                {
+                    "match": "[a-zA-Z_][a-zA-Z\\d_-]*",
+                    "name": "support.constant.property-value"
+                },
+                { "include": "#variable" }
+            ]
         },
         "invalid-rule-name": {
             "begin": "\\s*(.*)\\s*:",
