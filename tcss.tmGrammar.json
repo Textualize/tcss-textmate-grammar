@@ -890,7 +890,7 @@
                         { "include": "#invalid-value" }
                     ]
                 },
-                "6": {
+                "7": {
                     "patterns": [
                         { "include": "#percentage" },
                         { "include": "#invalid-value" }
