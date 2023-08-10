@@ -30,12 +30,12 @@
             "name": "comment.block.tcss"
         },
         "comment-line": {
-            "begin": "\\#",
+            "begin": "\\# ",
             "beginCaptures": {
                 "0": { "name": "punctuation.definition.comment.begin.tcss"}
             },
             "end": "$",
-            "name": "comment.inline.tcss"
+            "name": "comment.line.tcss"
         },
         "selector": {
             "begin": "(?=[-\\[:.*\\#a-zA-Z_])",
