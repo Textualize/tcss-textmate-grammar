@@ -8,11 +8,20 @@ patterns:
   - include: "#combinators"
   - include: "#selector"
   - include: "#rule-list"
+
+
 repository:
+
   combinators:
     patterns:
       - match: ">"
         name: "keyword.operator.combinator.tcss"
+
+  commas:
+    patterns:
+      - match: ","
+        name: "punctuation.separator.list.comma.tcss"
+
   comment-block:
     begin: "/\\*"
     beginCaptures:
@@ -21,15 +30,28 @@ repository:
     endCaptures:
       0: {name: "punctuation.definition.comment.end.tcss"}
     name: "comment.block.tcss"
+
   comment-line:
     begin: "\\# "
     beginCaptures:
       0: {name: "punctuation.definition.comment.begin.tcss"}
     end: "$"
     name: "comment.line.tcss"
+
   selector:
     # We look for something that looks like the beginning of a selector + end of a selector
     begin: "(?=[.*\\#a-zA-Z_])"  # Valid selector character.
     end: "(?=\\s*{)"  # A selector ends when the { begins.
     name: "meta.selector.tcss"
-    patterns: []
+    patterns:
+      - include: "#selector-innards"
+
+  selector-innards:
+    patterns:
+      - include: "#comment-block"
+      - include: "#comment-line"
+      - include: "#commas"
+      - include: "#combinators"
+      # The wildcard '*' selector
+      - match: "\\*"
+        name: "entity.name.tag.wildcard.tcss"
