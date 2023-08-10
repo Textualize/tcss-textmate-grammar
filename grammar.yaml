@@ -1,0 +1,35 @@
+scopeName: "source.tcss"
+name: "Textual CSS"
+fileTypes:
+  - "tcss"
+patterns:
+  - include: "#comment-block"
+  - include: "#comment-line"
+  - include: "#combinators"
+  - include: "#selector"
+  - include: "#rule-list"
+repository:
+  combinators:
+    patterns:
+      - match: ">"
+        name: "keyword.operator.combinator.tcss"
+  comment-block:
+    begin: "/\\*"
+    beginCaptures:
+      0: {name: "punctuation.definition.comment.begin.tcss"}
+    end: "\\*/"
+    endCaptures:
+      0: {name: "punctuation.definition.comment.end.tcss"}
+    name: "comment.block.tcss"
+  comment-line:
+    begin: "\\# "
+    beginCaptures:
+      0: {name: "punctuation.definition.comment.begin.tcss"}
+    end: "$"
+    name: "comment.line.tcss"
+  selector:
+    # We look for something that looks like the beginning of a selector + end of a selector
+    begin: "(?=[.*\\#a-zA-Z_])"  # Valid selector character.
+    end: "(?=\\s*{)"  # A selector ends when the { begins.
+    name: "meta.selector.tcss"
+    patterns: []
