@@ -446,8 +446,8 @@
             "begin": "\\s*(margin|padding)\\s*:\\s*",
             "end": "\\s*(!important)\\s*;",
             "patterns": [
-                { "include": "#variable" },
-                { "include": "#integers-1-2-4-value" },
+                { "include": "#integers-1-2-4-value-with-variables" },
+                { "include": "#integers-1-2-4-value-only-integers" },
                 { "include": "#invalid-value" }
             ],
             "beginCaptures": {
@@ -535,7 +535,7 @@
                 "1": { "name": "keyword.other.important" }
             }
         },
-        "integers-1-2-4-value": {
+        "integers-1-2-4-value-only-integers": {
             "match": "(\\d+)(\\s+(\\d+)(\\s+(\\d+)\\s+(\\d+))?)?",
             "captures": {
                 "1": {
@@ -558,6 +558,39 @@
                 },
                 "6": {
                     "patterns": [
+                        { "include": "#integer-value" },
+                        { "include": "#invalid-value" }
+                    ]
+                }
+            }
+        },
+        "integers-1-2-4-value-with-variables": {
+            "match": "(?=.*\\$)(\\S+)(\\s+(\\S+)(\\s+(\\S+)(\\s+(\\S+))?)?)?",
+            "captures": {
+                "1": {
+                    "patterns": [
+                        { "include": "#variable" },
+                        { "include": "#integer-value" },
+                        { "include": "#invalid-value" }
+                    ]
+                },
+                "3": {
+                    "patterns": [
+                        { "include": "#variable" },
+                        { "include": "#integer-value" },
+                        { "include": "#invalid-value" }
+                    ]
+                },
+                "5": {
+                    "patterns": [
+                        { "include": "#variable" },
+                        { "include": "#integer-value" },
+                        { "include": "#invalid-value" }
+                    ]
+                },
+                "7": {
+                    "patterns": [
+                        { "include": "#variable" },
                         { "include": "#integer-value" },
                         { "include": "#invalid-value" }
                     ]
