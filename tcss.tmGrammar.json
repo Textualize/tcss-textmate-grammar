@@ -236,18 +236,19 @@
             "begin": "\\s*(grid-gutter)\\s*:\\s",
             "end": "\\s*(!important)\\s*;",
             "patterns": [
-                { "include": "#variable" },
                 {
                     "match": "(\\S+)(\\s+(\\S+))?",
                     "captures": {
                         "1": {
                             "patterns": [
+                                { "include": "#variable" },
                                 { "include": "#scalar-value" },
                                 { "include": "#invalid-value" }
                             ]
                         },
                         "3": {
                             "patterns": [
+                                { "include": "#variable" },
                                 { "include": "#scalar-value" },
                                 { "include": "#invalid-value" }
                             ]
@@ -267,18 +268,19 @@
             "begin": "\\s*(grid-size)\\s*:\\s",
             "end": "\\s*(!important)\\s*;",
             "patterns": [
-                { "include": "#variable" },
                 {
                     "match": "(\\S+)(\\s+(\\S+))?",
                     "captures": {
                         "1": {
                             "patterns": [
+                                { "include": "#variable" },
                                 { "include": "#integer-value" },
                                 { "include": "#invalid-value" }
                             ]
                         },
                         "3": {
                             "patterns": [
+                                { "include": "#variable" },
                                 { "include": "#integer-value" },
                                 { "include": "#invalid-value" }
                             ]
@@ -322,12 +324,14 @@
                     "captures": {
                         "1": {
                             "patterns": [
+                                { "include": "#variable" },
                                 { "include": "#overflow-value" },
                                 { "include": "#invalid-value" }
                             ]
                         },
                         "2": {
                             "patterns": [
+                                { "include": "#variable" },
                                 { "include": "#overflow-value" },
                                 { "include": "#invalid-value" }
                             ]
@@ -467,12 +471,14 @@
                     "captures": {
                         "1": {
                             "patterns": [
+                                { "include": "#variable" },
                                 { "include": "#scalar-value" },
                                 { "include": "#invalid-value" }
                             ]
                         },
                         "2": {
                             "patterns": [
+                                { "include": "#variable" },
                                 { "include": "#scalar-value" },
                                 { "include": "#invalid-value" }
                             ]
@@ -498,12 +504,14 @@
                     "captures": {
                         "1": {
                             "patterns": [
+                                { "include": "#variable" },
                                 { "include": "#integer-value" },
                                 { "include": "#invalid-value" }
                             ]
                         },
                         "2": {
                             "patterns": [
+                                { "include": "#variable" },
                                 { "include": "#integer-value" },
                                 { "include": "#invalid-value" }
                             ]
