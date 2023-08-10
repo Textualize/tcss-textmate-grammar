@@ -45,7 +45,7 @@
         },
         "border-rule": {
             "begin": "\\s*(border|border-top|border-right|border-bottom|border-left|outline|outline-top|outline-right|outline-bottom|outline-left)\\s*:\\s*",
-            "end": "\\s*(!important)\\s*;",
+            "end": "\\s*(!important)?\\s*;",
             "beginCaptures": {
                 "1": { "name": "support.type.property-name" }
             },
@@ -61,7 +61,7 @@
         },
         "color-rule": {
             "begin": "\\s*(background|border-subtitle-background|border-subtitle-color|border-title-color|border-title-background|color|link-background|link-color|link-hover-background|link-hover-color|scrollbar-background|scrollbar-background-active|scrollbar-background-hover|scrollbar-color|scrollbar-color-active|scrollbar-color-hover|scrollbar-corner-color|tint)\\s*:\\s*",
-            "end": "\\s*(!important)\\s*;",
+            "end": "\\s*(!important)?\\s*;",
             "beginCaptures": {
                 "1": { "name": "support.type.property-name" }
             },
@@ -76,7 +76,7 @@
         },
         "horizontal-vertical-rule": {
             "begin": "\\s*(align|content-align)\\s*:\\s*",
-            "end": "\\s*(!important)\\s*;",
+            "end": "\\s*(!important)?\\s*;",
             "patterns": [
                 { "include": "#variable" },
                 { "include": "#horizontal-vertical-value" },
@@ -91,7 +91,7 @@
         },
         "horizontal-rule": {
             "begin": "\\s*(align-horizontal|border-subtitle-align|border-title-align|content-align-horizontal)\\s*:\\s*",
-            "end": "\\s*(!important)\\s*;",
+            "end": "\\s*(!important)?\\s*;",
             "patterns": [
                 { "include": "#variable" },
                 { "include": "#horizontal-value" },
@@ -106,7 +106,7 @@
         },
         "vertical-rule": {
             "begin": "\\s*(align-vertical|content-align-vertical)\\s*:\\s*",
-            "end": "\\s*(!important)\\s*;",
+            "end": "\\s*(!important)?\\s*;",
             "patterns": [
                 { "include": "#variable" },
                 { "include": "#vertical-value" },
@@ -121,7 +121,7 @@
         },
         "scalar-rule": {
             "begin": "\\s*(height|max-height|max-width|min-height|min-width|offset-x|offset-y|width)\\s*:\\s*",
-            "end": "\\s*(!important)\\s*;",
+            "end": "\\s*(!important)?\\s*;",
             "patterns": [
                 { "include": "#variable" },
                 { "include": "#scalar-value" },
@@ -136,7 +136,7 @@
         },
         "text-style-rule": {
             "begin": "\\s*(border-subtitle-style|border-title-style|link-hover-style|link-style|text-style)\\s*:\\s*",
-            "end": "\\s*(!important)\\s*;",
+            "end": "\\s*(!important)?\\s*;",
             "patterns": [
                 { "include": "#text-style-value" },
                 { "include": "#invalid-value" }
@@ -150,7 +150,7 @@
         },
         "box-sizing-rule": {
             "begin": "\\s*(box-sizing)\\s*:\\s*",
-            "end": "\\s*(!important)\\s*;",
+            "end": "\\s*(!important)?\\s*;",
             "patterns": [
                 { "include": "#variable" },
                 {
@@ -168,7 +168,7 @@
         },
         "display-rule": {
             "begin": "\\s*(display)\\s*:\\s*",
-            "end": "\\s*(!important)\\s*;",
+            "end": "\\s*(!important)?\\s*;",
             "patterns": [
                 { "include": "#variable" },
                 {
@@ -186,7 +186,7 @@
         },
         "dock-rule": {
             "begin": "\\s*(dock)\\s*:\\s*",
-            "end": "\\s*(!important)\\s*;",
+            "end": "\\s*(!important)?\\s*;",
             "patterns": [
                 { "include": "#variable" },
                 {
@@ -204,7 +204,7 @@
         },
         "integer-rule": {
             "begin": "\\s*(column-span|row-span|margin-top|margin-right|margin-bottom|margin-left|padding-top|padding-right|padding-bottom|padding-left|scrollbar-size-horizontal|scrollbar-size-vertical)\\s*:\\s*",
-            "end": "\\s*(!important)\\s*;",
+            "end": "\\s*(!important)?\\s*;",
             "patterns": [
                 { "include": "#variable" },
                 { "include": "#integer-value" },
@@ -219,7 +219,7 @@
         },
         "multiple-scalars-rule": {
             "begin": "\\s*(grid-columns|grid-rows)\\s*:\\s*",
-            "end": "\\s*(!important)\\s*;",
+            "end": "\\s*(!important)?\\s*;",
             "patterns": [
                 { "include": "#variable" },
                 { "include": "#multiple-scalars-value" },
@@ -234,7 +234,7 @@
         },
         "grid-gutter-rule": {
             "begin": "\\s*(grid-gutter)\\s*:\\s",
-            "end": "\\s*(!important)\\s*;",
+            "end": "\\s*(!important)?\\s*;",
             "patterns": [
                 {
                     "match": "(\\S+)(\\s+(\\S+))?",
@@ -266,7 +266,7 @@
         },
         "grid-size-rule": {
             "begin": "\\s*(grid-size)\\s*:\\s",
-            "end": "\\s*(!important)\\s*;",
+            "end": "\\s*(!important)?\\s*;",
             "patterns": [
                 {
                     "match": "(\\S+)(\\s+(\\S+))?",
@@ -298,7 +298,7 @@
         },
         "layout-rule": {
             "begin": "\\s*(layout)\\s*:\\s*",
-            "end": "\\s*(!important)\\s*;",
+            "end": "\\s*(!important)?\\s*;",
             "patterns": [
                 { "include": "#variable" },
                 {
@@ -316,7 +316,7 @@
         },
         "overflow-rule": {
             "begin": "\\s*(overflow)\\s*:\\s*",
-            "end": "\\s*(!important)\\s*;",
+            "end": "\\s*(!important)?\\s*;",
             "patterns": [
                 { "include": "#variable" },
                 {
@@ -349,7 +349,7 @@
         },
         "overflow-dir-rule": {
             "begin": "\\s*(overflow-x|overflow-y)\\s*:\\s*",
-            "end": "\\s*(!important)\\s*;",
+            "end": "\\s*(!important)?\\s*;",
             "patterns": [
                 { "include": "#variable" },
                 { "include": "#overflow-value" },
@@ -364,7 +364,7 @@
         },
         "scrollbar-gutter-rule": {
             "begin": "\\s*(scrollbar-gutter)\\s*:\\s*",
-            "end": "\\s*(!important)\\s*;",
+            "end": "\\s*(!important)?\\s*;",
             "patterns": [
                 { "include": "#variable" },
                 {
@@ -382,7 +382,7 @@
         },
         "text-align-rule": {
             "begin": "\\s*(text-align)\\s*:\\s*",
-            "end": "\\s*(!important)\\s*;",
+            "end": "\\s*(!important)?\\s*;",
             "patterns": [
                 { "include": "#variable" },
                 {
@@ -400,7 +400,7 @@
         },
         "visibility-rule": {
             "begin": "\\s*(visibility)\\s*:\\s*",
-            "end": "\\s*(!important)\\s*;",
+            "end": "\\s*(!important)?\\s*;",
             "patterns": [
                 { "include": "#variable" },
                 {
@@ -418,7 +418,7 @@
         },
         "layer-rule": {
             "begin": "\\s*(layer)\\s*:\\s*",
-            "end": "\\s*(!important)\\s*;",
+            "end": "\\s*(!important)?\\s*;",
             "patterns": [
                 { "include": "#variable" },
                 { "include": "#name-value" },
@@ -433,7 +433,7 @@
         },
         "layers-rule": {
             "begin": "\\s*(layers)\\s*:\\s*",
-            "end": "\\s*(!important)\\s*;",
+            "end": "\\s*(!important)?\\s*;",
             "patterns": [
                 { "include": "#variable" },
                 { "include": "#multiple-names-value" },
@@ -448,7 +448,7 @@
         },
         "integers-1-2-4-rule": {
             "begin": "\\s*(margin|padding)\\s*:\\s*",
-            "end": "\\s*(!important)\\s*;",
+            "end": "\\s*(!important)?\\s*;",
             "patterns": [
                 { "include": "#integers-1-2-4-value-with-variables" },
                 { "include": "#integers-1-2-4-value-only-integers" },
@@ -463,7 +463,7 @@
         },
         "offset-rule": {
             "begin": "\\s*(offset)\\s*:\\s*",
-            "end": "\\s*(!important)\\s*;",
+            "end": "\\s*(!important)?\\s*;",
             "patterns": [
                 { "include": "#variable" },
                 {
@@ -496,7 +496,7 @@
         },
         "scrollbar-size-rule": {
             "begin": "\\s*(scrollbar-size)\\s*:\\s*",
-            "end": "\\s*(!important)\\s*;",
+            "end": "\\s*(!important)?\\s*;",
             "patterns": [
                 { "include": "#variable" },
                 {
@@ -529,7 +529,7 @@
         },
         "opacity-rule": {
             "begin": "\\s*(opacity|text-opacity)\\s*:\\s*",
-            "end": "\\s*(!important)\\s*;",
+            "end": "\\s*(!important)?\\s*;",
             "patterns": [
                 { "include": "#variable" },
                 { "include": "#percentage" },
@@ -1006,7 +1006,7 @@
         },
         "invalid-rule-name": {
             "begin": "\\s*(.*)\\s*:",
-            "end": "\\s*(!important)\\s*;",
+            "end": "\\s*(!important)?\\s*;",
             "beginCaptures": {
                 "1": { "name": "invalid.tcss-rule-name" }
             },
