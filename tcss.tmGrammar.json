@@ -27,6 +27,13 @@
                 "0": { "name": "punctuation.definition.comment.end.tcss" }
             },
             "name": "comment.block.tcss"
+        },
+        "selector": {
+            "begin": "(?=[-\\[:.*\\#a-zA-Z_])",
+            "end": "(?=\\s*{)",
+            "name": "meta.selector.tcss",
+            "patterns": [
+            ]
         }
     }
 }
