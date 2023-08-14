@@ -38,6 +38,11 @@ repository:
     end: "$"
     name: "comment.line.tcss"
 
+  property-names:
+    patterns:
+      - match: "(?<![\\w-])(?:align|align-horizontal|align-vertical|background|border|border-bottom|border-left|border-right|border-subtitle-align|border-subtitle-background|border-subtitle-color|border-subtitle-style|border-title-align|border-title-background|border-title-color|border-title-style|border-top|box-sizing|color|column-span|content-align|content-align-horizontal|content-align-vertical|display|dock|grid-columns|grid-gutter|grid-rows|grid-size|height|layer|layers|layout|link-background|link-color|link-hover-background|link-hover-color|link-hover-style|link-style|margin|margin-bottom|margin-left|margin-right|margin-top|max-height|max-width|min-height|min-width|offset|offset-x|offset-y|opacity|outline|outline-bottom|outline-left|outline-right|outline-top|overflow|overflow-x|overflow-y|padding|padding-bottom|padding-left|padding-right|padding-top|row-span|scrollbar-background|scrollbar-background-active|scrollbar-background-hover|scrollbar-color|scrollbar-color-active|scrollbar-color-hover|scrollbar-corner-color|scrollbar-gutter|scrollbar-size|scrollbar-size-horizontal|scrollbar-size-vertical|text-align|text-opacity|text-style|tint|visibility|width)(?![\\w-])"
+        name: "support.type.property-name.tcss"
+
   pseudo-classes:
     match: "(:)(:*)(?:disabled|enabled|focus|focus-within|hover)(?![\\w-]|\\s*[;}])"
     captures:
@@ -53,8 +58,34 @@ repository:
     endCaptures:
       "0": {name: "punctuation.section.property-list.end.bracket.curly.tcss"}
     name: "meta.property-list.tcss"
-    # patterns:
-    #   - include: "#rule-list-innards"
+    patterns:
+      - include: "#rule-list-innards"
+
+  rule-list-innards:
+    patterns:
+      - include: "#comment-block"
+      - include: "#comment-line"
+
+      # Property names (TCSS properties don't start with -.)
+      - begin: "(?<![-a-zA-Z])(?=[a-zA-Z])"
+        end: "$|(?![-a-zA-Z])"
+        name: "meta.property-name.tcss"
+        patterns:
+          - include: "#property-names"
+
+      - begin: "(:)\\s*"
+        beginCaptures:
+          "1": {name: "punctuation.separator.key-value.tcss"}
+        end: "\\s*(;)|\\s*(?=})"
+        endCaptures:
+          "1": {name: "punctuation.terminator.rule.tcss"}
+        contentName: "meta.property-value.tcss"
+        patterns:
+          - include: "#comment-block"
+          # - include: "#property-values"
+
+      - match: ";"
+        name: "punctuation.terminator.rule.tcss"
 
   selector:
     # We look for something that looks like the beginning of a selector + end of a selector
