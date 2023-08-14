@@ -45,6 +45,17 @@ repository:
       2: {name: "invalid.illegal.colon.tcss"}
     name: "entity.other.attribute-name.pseudo-class.tcss"
 
+  rule-list:
+    begin: "{"
+    beginCaptures:
+      "0": {name: "punctuation.section.property-list.begin.bracket.curly.tcss"}
+    end: "}"
+    endCaptures:
+      "0": {name: "punctuation.section.property-list.end.bracket.curly.tcss"}
+    name: "meta.property-list.tcss"
+    # patterns:
+    #   - include: "#rule-list-innards"
+
   selector:
     # We look for something that looks like the beginning of a selector + end of a selector
     begin: "(?=[.*\\#a-zA-Z_])"  # Valid selector character.
