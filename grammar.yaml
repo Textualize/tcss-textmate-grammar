@@ -38,6 +38,13 @@ repository:
     end: "$"
     name: "comment.line.tcss"
 
+  pseudo-classes:
+    match: "(:)(:*)(?:disabled|enabled|focus|focus-within|hover)(?![\\w-]|\\s*[;}])"
+    captures:
+      1: {name: "punctuation.definition.entity.tcss"}
+      2: {name: "invalid.illegal.colon.tcss"}
+    name: "entity.other.attribute-name.pseudo-class.tcss"
+
   selector:
     # We look for something that looks like the beginning of a selector + end of a selector
     begin: "(?=[.*\\#a-zA-Z_])"  # Valid selector character.
@@ -52,6 +59,39 @@ repository:
       - include: "#comment-line"
       - include: "#commas"
       - include: "#combinators"
+
       # The wildcard '*' selector
       - match: "\\*"
         name: "entity.name.tag.wildcard.tcss"
+
+      # Actively look for invalid names
+      ## Look-behind to make sure we're not in the middle of a selector
+      ## Consume possible . or # for class/ID entity
+      ## Invalid identifiers start with
+      ### a digit (possibly preceeded by a hyphen)
+      ### or a single hyphen followed by
+      #### end of line, another selector, block comment, line comment
+      ## Then we mark the remainder of the selector to be invalid
+      - captures:
+          1: {name: "punctuation.definition.entity.css"}
+        match: "([.\\#])(?:-?[0-9]|-(?=$|[\\s,.\\#:{>]|/\\*|# ))(?:[-a-zA-Z_0-9])*"
+        name: "invalid.illegal.bad-identifier.tcss"
+
+      # Class names
+      ## . followed by valid characters which must be ended by either
+      ### End of line, another selector, block comment, line comment
+      - captures:
+          1: {name: "punctuation.definition.entity.tcss"}
+        match: "(\\.)(?:[-a-zA-Z_0-9])+(?=$|[\\s,.\\#:{>]|/\\*|# )"
+        name: "entity.other.attribute-name.class.css"
+
+      # Valid IDs
+      - captures:
+          1: {name: "punctuation.definition.entity.tcss"}
+        match: "(\\#)(?:[-a-zA-Z0-9])+(?=$|[\\s,.\\#:{>]|/\\*|# )"
+        name: "entity.other.attribute-name.id.tcss"
+
+      - include: "#pseudo-classes"
+
+      - match: "(?<![\\w-])(?![0-9])(?:\\w)+(?!\\w)"
+        name: "entity.name.tag.widget.tcss"
