@@ -147,9 +147,11 @@ repository:
       - match: ";"
         name: "punctuation.terminator.rule.tcss"
 
+      - include: "#selector"  # For nested CSS.
+
   selector:
     # We look for something that looks like the beginning of a selector + end of a selector
-    begin: "(?=[.*\\#a-zA-Z_])"  # Valid selector character.
+    begin: "(?=[.*\\#\\&a-zA-Z_])"  # Valid selector character.
     end: "(?=\\s*{)"  # A selector ends when the { begins.
     name: "meta.selector.tcss"
     patterns:
@@ -165,6 +167,10 @@ repository:
       # The wildcard '*' selector
       - match: "\\*"
         name: "entity.name.tag.wildcard.tcss"
+
+      # The nested TCSS '&' selector
+      - match: "\\&"
+        name: "entity.name.tag.nesting-selector.tcss"
 
       # Actively look for invalid names
       ## Look-behind to make sure we're not in the middle of a selector
@@ -185,7 +191,7 @@ repository:
       - captures:
           1: {name: "punctuation.definition.entity.tcss"}
         match: "(\\.)(?:[-a-zA-Z_0-9])+(?=$|[\\s,.\\#:{>]|/\\*|# )"
-        name: "entity.other.attribute-name.class.css"
+        name: "entity.other.attribute-name.class.tcss"
 
       # Valid IDs
       - captures:
